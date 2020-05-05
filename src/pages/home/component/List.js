@@ -23,7 +23,7 @@ class List extends PureComponent {
                         </Link>
                     ))
                 }
-                <LoadMore onClik={()=>getMoreList(page)}>加载更多</LoadMore>
+                <LoadMore onClick={()=>getMoreList(page)}>加载更多</LoadMore>
             </div>
         );
     }
@@ -34,6 +34,7 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatch = (dispatch) => ({
     getMoreList(page){
+        console.log("page",page)
         dispatch(actionCreators.getMoreList(page))
     }
 })
