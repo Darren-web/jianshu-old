@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from "react-redux"
 import {CSSTransition} from "react-transition-group"
+import { Link } from 'react-router-dom'
 import  
 {actionCreators}  from './store'
 import {
@@ -53,7 +54,7 @@ class Header extends Component {
         const {focused,handleInputFocus,handleInputBlur,list} = this.props;
         return(
             <HeaderWrapper>
-        <Logo href="/"/>
+        <Link to="/"><Logo /></Link>
         <Nav>
             <NavItem className='left active'>首页</NavItem>
             <NavItem className='left'>下载App</NavItem>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {CHANGE_HOME_DATA,ADD_ARTICLE_LIST} from './constants'
+import {CHANGE_HOME_DATA,ADD_ARTICLE_LIST,TOGGLE_SCROLL_TOP} from './constants'
 import { fromJS } from 'immutable';
 
 
@@ -13,7 +13,6 @@ export const getHomeInfo = () => {
     return (dispatch) => {
         axios.get('/api/home.json').then((res) => {
             const result = res.data.data;
-            console.log('result',result)
             dispatch(changeHomeData(result))
         })
     }
@@ -33,3 +32,7 @@ export const getMoreList = (page) => {
 		});
     }
 }
+export const toggleTopShow = (show) =>({
+    type: TOGGLE_SCROLL_TOP,
+    show
+})

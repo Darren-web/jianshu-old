@@ -14,3 +14,6 @@ export const Header = styled.div`
     color: #333;
     font-weight: bold;
 `
+export const Content = styled.div`
+    color:#2f2f2f;
+`

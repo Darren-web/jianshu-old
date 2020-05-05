@@ -34,7 +34,6 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatch = (dispatch) => ({
     getMoreList(page){
-        console.log("page",page)
         dispatch(actionCreators.getMoreList(page))
     }
 })
