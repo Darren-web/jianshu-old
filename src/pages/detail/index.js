@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import { DetailWrapper,Header,Content } from './style'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { actionCreators } from './store';
 
 class Detail extends Component {
     render() {
         return (
             <DetailWrapper>
-                <Header>header</Header>
-                <Content>
-                    <img alt='' src='//upload.jianshu.io/admin_banners/web_images/4318/60781ff21df1d1b03f5f8459e4a1983c009175a5.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540'/>
-                </Content>
+                <Header>{this.props.title}</Header>
+                <Content dangerouslySetInnerHTML={{__html:this.props.content}} />
+                
             </DetailWrapper>
         );
     }
+    componentDidMount(){
+        this.props.getDetail(this.props.match.params.id);
+    }
 }
+const mapState = (state) => ({
+    title: state.getIn(['detail','title']),
+    content: state.getIn(['detail','content'])
+})
+const mapDispatch = (dispatch) => ({
+    getDetail(id){
+        dispatch(actionCreators.getDetail(id))
+    }
+})
 
-export default Detail;
+export default connect(mapState,mapDispatch)(withRouter(Detail));

@@ -81,6 +81,7 @@ export const NavSearch=styled.input.attrs({
 `;
 //header 热搜框
 export const SearchInfo = styled.div`
+    z-index:1;
     position:absolute;
     left:0;
     top:56px;
